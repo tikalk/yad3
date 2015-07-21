@@ -1,21 +1,59 @@
 <template name="search">
-	<h3>Search for an apartment</h3>
+	<div class="mdl-grid mdl-cell--12-col">
+		<h3 class="mdl-color-text--grey-600">Search for an apartment</h3>
+		<div class="mdl-grid mdl-cell--12-col">
+			<form action="#" class="search-form">
 
-      <form class="search-form">
-	Rooms:
-        from: <input type="text" name="minRooms" value="{{searchForm.minRooms}}" placeholder="Minimum number of rooms" />
-        to: <input type="text" name="maxRooms" value="{{searchForm.maxRooms}}" placeholder="Maximum number of rooms" />
-	<br>
+				<h4 class="mdl-color-text--grey-600">Rooms</h4>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="minRooms" value="0" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="minRooms">Minimum number of rooms</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="maxRooms" value="99" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="maxRooms">Maximum number of rooms</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</div>
 
-	Floor:
-        from: <input type="text" name="minFloor" placeholder="Minimum floor" />
-        to: <input type="text" name="maxFloor" placeholder="Maximum floor" />
-	<br>
-	<input type="submit" value="Search">
-	<br>
+				<h4 class="mdl-color-text--grey-600">Floor</h4>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="minFloor" value="0" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="minFloor">Minimum floor</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="maxFloor" value="99" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="maxFloor">Maximum floor</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</div>
+
+				<h4 class="mdl-color-text--grey-600">Price</h4>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="minPrice" value="0" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="minPrice">Minimum price</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="number" id="maxPrice" value="99999" pattern="[0-9]*"/>
+						<label class="mdl-textfield__label" for="maxPrice">Maximum price</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</div>
+				<div>
+					<button class="mdl-button mdl-js-button mdl-button--raised">
+						Search
+					</button>
+				</div>
 
       </form>
-
+</div>
+</div>
 	<hr>
 	Results:
 	
@@ -27,5 +65,5 @@
 </template>
 
 <template name="apartment">
-  <li>{{name}}</li>
+  <li>Call <a href='tel:{{contact.phone}}'>{{contact.name}}</a> or <a href='sms:{{contact.phone}}'>send SMS</a></li>
 </template>
