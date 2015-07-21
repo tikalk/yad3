@@ -1,0 +1,50 @@
+<template name="searchResults">
+	<div class="mdl-grid mdl-cell--12-col">
+		<h3 class="mdl-color-text--grey-600">Search results  </h3>
+		<div class="mdl-grid mdl-cell--4-col">
+		Rooms: {{queryParams.minRooms}}..{{queryParams.maxRooms}}
+		</div>	
+		<div class="mdl-grid mdl-cell--4-col">
+		Floor: {{queryParams.minFloor}}..{{queryParams.maxFloor}}	
+		</div>	
+		Price: {{queryParams.minPrice}}..{{queryParams.maxPrice}}
+		<div class="mdl-grid mdl-cell--4-col">
+		</div>	
+
+		<div class="mdl-grid mdl-cell--12-col">
+
+			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+			  <thead>
+			    <tr>
+			      <th class="mdl-data-table__cell--non-numeric">Address</th>
+			      <th>Rooms</th>
+			      <th>Floor</th>
+			      <th>Price</th>
+			      <th class="mdl-data-table__cell--non-numeric">Contact</th>
+			      <th>Call</th>
+			      <th>SMS</th>
+			      <th>Map</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+				{{#each apartments}}
+					{{> apartment}}
+				{{/each}}
+			  </tbody>
+			</table>
+		</div>
+	</div>
+</template>
+
+<template name="apartment">
+    <tr>
+      <td class="mdl-data-table__cell--non-numeric">{{address.info}}</td>
+      <td>{{info.rooms}}</td>
+      <td>{{info.floor}}</td>
+      <td>{{info.price}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{contact.name}}</td>
+      <td><a href='tel:{{contact.phone}}'>Call</a></td>
+      <td><a href='sms:{{contact.phone}}'>SMS</a></td>
+      <td><a href='#'>Map</a></td>
+    </tr>
+</template>
