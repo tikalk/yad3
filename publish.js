@@ -22,7 +22,7 @@ if(Meteor.isClient){
 					phone: event.target.phone.value
 				},
 				address: {
-					info: 'Ben-Gurion 17',
+					info: event.target.street.value,
 					geohash: 'a554hd7'
 				},
 				info: {
