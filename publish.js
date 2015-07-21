@@ -5,13 +5,6 @@ if(Meteor.isClient){
 			// Prevent default browser form submit
 			event.preventDefault();
 
-			var doc = {},
-				fields = ['name', 'phone', 'picture', 'floor', 'rooms', 'price'];
-
-			fields.forEach(function(field){
-				doc[field] = event.target[field].value;
-			});
-
 			Apartments.insert({
 				contact: {
 					name: event.target.name.value,
@@ -28,6 +21,8 @@ if(Meteor.isClient){
 					price: parseFloat(event.target.price.value)
 				}
 			});
+
+			event.target.reset();
 		}
 	});
 }
