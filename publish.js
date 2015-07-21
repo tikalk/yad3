@@ -34,6 +34,7 @@ if(Meteor.isClient){
 			});
 
 			event.target.reset();
+			location.href = "/search";
 		}
 	});
 
