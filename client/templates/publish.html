@@ -20,6 +20,7 @@
                         <label for="picture">Picture</label>
                         <input type="file" id="picture" name="picture">
                     </div>
+	                <div id="thumbnail">{{#if picture}}<img src="{{picture}}" style="max-width:200px;max-height:200px;" />{{/if}}</div>
                 </div>
 				<div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">

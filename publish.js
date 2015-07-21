@@ -8,6 +8,7 @@ if(Meteor.isClient){
 
 			reader.onload = function(e){
 				picture = reader.result;
+				Session.set("picture", reader.result);
 			};
 
 			reader.readAsDataURL(file);
@@ -33,6 +34,12 @@ if(Meteor.isClient){
 			});
 
 			event.target.reset();
+		}
+	});
+
+	Template.publish.helpers({
+		picture: function(){
+			return Session.get("picture");
 		}
 	});
 }
