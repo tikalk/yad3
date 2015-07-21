@@ -6,6 +6,23 @@ Router.route('/', {
 	}
 });
 
+Router.route('/account', {
+	name: 'account',
+	layoutTemplate: 'main',
+	action: function () {
+		this.redirect('home');
+	}
+});
+
+Router.route('/logout', {
+	name: 'logout',
+	layoutTemplate: 'main',
+	action: function () {
+		this.redirect('home');
+	}
+});
+
+
 Router.route('/publish', {
 	name: 'publish',
 	layoutTemplate: 'main',

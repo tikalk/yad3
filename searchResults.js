@@ -13,11 +13,14 @@ if (Meteor.isClient) {
 				{'info.floor': {$gte: parseInt(this.queryParams.minFloor)}},	
 				{'info.floor': {$lte: parseInt(this.queryParams.maxFloor)}},	
 				{'info.price': {$gte: parseInt(this.queryParams.minPrice)}},	
-				{'info.price': {$lte: parseInt(this.queryParams.maxPrice)}},	
-				{'address.geohash': {$regex: '^' + this.queryParams.geohash}}
+				{'info.price': {$lte: parseInt(this.queryParams.maxPrice)}}/*,	
+				{'address.geohash': {$regex: '^' + this.queryParams.geohash}}*/
 			]
 		}, {sort: {createdAt: -1}})/*.hint({"address.geohash" : 1})*/;
-    }
+    },
+	formatDate: function(date) {
+		return date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes();
+	}
   });
 
 }

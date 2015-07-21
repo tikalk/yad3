@@ -17,13 +17,14 @@ if(Meteor.isClient){
 			event.preventDefault();
 
 			Apartments.insert({
+				createdAt: new Date(),
 				contact: {
 					name: event.target.name.value,
 					phone: event.target.phone.value
 				},
 				address: {
 					info: event.target.street.value,
-					geohash: 'a554hd7'
+					geohash: ''
 				},
 				info: {
 					picture: picture,

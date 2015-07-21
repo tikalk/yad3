@@ -7,15 +7,19 @@
 		<div class="mdl-grid mdl-cell--4-col">
 		Floor: {{queryParams.minFloor}}..{{queryParams.maxFloor}}	
 		</div>	
-		Price: {{queryParams.minPrice}}..{{queryParams.maxPrice}}
 		<div class="mdl-grid mdl-cell--4-col">
+		Price: {{queryParams.minPrice}}..{{queryParams.maxPrice}}
 		</div>	
+
+
 
 		<div class="mdl-grid mdl-cell--12-col">
 
 			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
 			  <thead>
 			    <tr>
+				<th></th>
+			      <th class="mdl-data-table__cell--non-numeric">Created</th>
 			      <th class="mdl-data-table__cell--non-numeric">Address</th>
 			      <th>Rooms</th>
 			      <th>Floor</th>
@@ -28,7 +32,7 @@
 			  </thead>
 			  <tbody>
 				{{#each apartments}}
-					{{> apartment}}
+					{{> apartment_row}}
 				{{/each}}
 			  </tbody>
 			</table>
@@ -36,8 +40,10 @@
 	</div>
 </template>
 
-<template name="apartment">
+<template name="apartment_row">
     <tr>
+	<td>{{#if info.picture}}<img src="{{info.picture}}" style="max-width:200px;max-height:100px;" />{{/if}}</td>
+      <td class="mdl-data-table__cell--non-numeric">{{createdAt}}</td>
       <td class="mdl-data-table__cell--non-numeric">{{address.info}}</td>
       <td>{{info.rooms}}</td>
       <td>{{info.floor}}</td>
@@ -48,3 +54,5 @@
       <td><a href='#'>Map</a></td>
     </tr>
 </template>
+
+
