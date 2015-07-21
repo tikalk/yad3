@@ -1,58 +1,44 @@
 <template name="searchResults">
 	<div class="mdl-grid mdl-cell--12-col">
-		<h3 class="mdl-color-text--grey-600">Search results  </h3>
-		<div class="mdl-grid mdl-cell--4-col">
-		Rooms: {{queryParams.minRooms}}..{{queryParams.maxRooms}}
-		</div>	
-		<div class="mdl-grid mdl-cell--4-col">
-		Floor: {{queryParams.minFloor}}..{{queryParams.maxFloor}}	
-		</div>	
-		<div class="mdl-grid mdl-cell--4-col">
-		Price: {{queryParams.minPrice}}..{{queryParams.maxPrice}}
-		</div>	
-
-
 
 		<div class="mdl-grid mdl-cell--12-col">
-
-			<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
-			  <thead>
-			    <tr>
-				<th></th>
-			      <th class="mdl-data-table__cell--non-numeric">Created</th>
-			      <th class="mdl-data-table__cell--non-numeric">Address</th>
-			      <th>Rooms</th>
-			      <th>Floor</th>
-			      <th>Price</th>
-			      <th class="mdl-data-table__cell--non-numeric">Contact</th>
-			      <th>Call</th>
-			      <th>SMS</th>
-			      <th>Map</th>
-			    </tr>
-			  </thead>
-			  <tbody>
-				{{#each apartments}}
-					{{> apartment_row}}
-				{{/each}}
-			  </tbody>
-			</table>
+			<div class="mdl-grid mdl-cell--6-col">
+				<h3 class="mdl-color-text--grey-600">Search results</h3>
+			</div>
+			<div class="mdl-grid mdl-cell--6-col">
+				<div class="mdl-cell--middle">
+					Rooms: {{queryParams.minRooms}}...{{queryParams.maxRooms}} &nbsp;|&nbsp;
+					Floor: {{queryParams.minFloor}}...{{queryParams.maxFloor}} &nbsp;|&nbsp;
+					Price: {{queryParams.minPrice}}...{{queryParams.maxPrice}}
+				</div>
+			</div>
+		</div>
+		<div class="mdl-grid mdl-cell--12-col">
+			{{#each apartments}}
+				{{> apartment}}
+			{{/each}}
 		</div>
 	</div>
 </template>
 
-<template name="apartment_row">
-    <tr>
-	<td>{{#if info.picture}}<img src="{{info.picture}}" style="max-width:200px;max-height:100px;" />{{/if}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{createdAt}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{address.info}}</td>
-      <td>{{info.rooms}}</td>
-      <td>{{info.floor}}</td>
-      <td>{{info.price}}</td>
-      <td class="mdl-data-table__cell--non-numeric">{{contact.name}}</td>
-      <td><a href='tel:{{contact.phone}}'>Call</a></td>
-      <td><a href='sms:{{contact.phone}}'>SMS</a></td>
-      <td><a href='#'>Map</a></td>
-    </tr>
+<template name="apartment">
+	<div class="mdl-card mdl-shadow--2dp">
+		<div class="mdl-card__title mdl-card--expand" style="background-image:url({{info.picture}})">
+			<span class="mdl-card__title-text label-price">${{info.price}}</span>
+		</div>
+		<div class=" mdl-grid mdl-card__supporting-text">
+			<div class="mdl-grid mdl-cell--8-col"><strong>{{address.info}}</strong></div>
+			<div class="mdl-grid mdl-cell--4-col">
+				<div>Floor: {{info.floor}}</div>&nbsp;
+				<div>Rooms: {{info.rooms}}</div>
+			</div>
+		</div>
+		<div class="mdl-card__actions mdl-card--border">
+			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+				Show Details
+			</a>
+			<a href="tel:{{contact.phone}}" class="call-me"><i class="material-icons">settings_phone</i></a>
+			<a href="sms:{{contact.phone}}" class="call-me"><i class="material-icons">sms</i></a>
+		</div>
+	</div>
 </template>
-
-
