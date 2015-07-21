@@ -22,6 +22,19 @@ Router.route('/search', {
 	}
 });
 
+Router.route('/searchResults', {
+	name: 'searchResults',
+	layoutTemplate: 'main',
+	action: function () {
+		this.render('searchResults', {
+			data: function() {
+				var queryParams = {queryParams: this.params.query}
+				return queryParams;
+			}
+		});
+	}
+});
+
 Router.route('/apartment', {
 	name: 'apartment',
 	layoutTemplate: 'main',

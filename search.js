@@ -23,28 +23,5 @@ if (Meteor.isClient) {
     }
   });
 
-  Template.search.events({
-    "submit .search-form": function (event) {
-      // Prevent default browser form submit
-      event.preventDefault();
- 
-      // Get value from form element and save it into session
-	var searchForm = {}
-	_.each(['minRooms', 'maxRooms', 'minFloor', 'maxFloor'], function(field) {searchForm[field] = event.target[field].value})
-
-	Session.set("searchForm", searchForm);
-
-	if (true) return;
- 
-      // Insert a task into the collection
-      Tasks.insert({
-        text: text,
-        createdAt: new Date() // current time
-      });
- 
-      // Clear form
-      event.target.text.value = "";
-    }
-  });
 
 }
