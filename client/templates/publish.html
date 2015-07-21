@@ -2,39 +2,39 @@
 	<div class="mdl-grid mdl-cell--12-col">
 		<h3 class="mdl-color-text--grey-600">Publish a new apartment</h3>
 		<div class="mdl-grid mdl-cell--12-col">
-			<form action="#">
+			<form class="publish-apartment">
 				<h4 class="mdl-color-text--grey-600">Contact</h4>
 				<div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="full_name" />
+						<input class="mdl-textfield__input" name="name" type="text" id="full_name" />
 						<label class="mdl-textfield__label" for="full_name">Your name</label>
 					</div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="phone" />
+						<input class="mdl-textfield__input" name="phone" type="text" id="phone" />
 						<label class="mdl-textfield__label" for="phone">Phone number</label>
 					</div>
 				</div>
 				<h4 class="mdl-color-text--grey-600">About the asset</h4>
-				<div>
-					<div class="mdl-textfield mdl-js-textfield">
-						<input class="mdl-textfield__input" type="file" id="picture" />
-						<label class="mdl-textfield__label" for="picture">Picture</label>
-					</div>
-				</div>
+                <div>
+                    <div class="mdl-textfield mdl-js-textfield textfield--file">
+                        <label for="picture">Picture</label>
+                        <input type="file" id="picture">
+                    </div>
+                </div>
 				<div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="floor" pattern="-?[0-9]*(\.[0-9]+)?" />
+						<input class="mdl-textfield__input" name="floor" type="text" id="floor" pattern="-?[0-9]*(\.[0-9]+)?" />
 						<label class="mdl-textfield__label" for="floor">Floor</label>
 						<span class="mdl-textfield__error">Input is not a number!</span>
 					</div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="rooms" />
+						<input class="mdl-textfield__input" name="rooms" type="text" id="rooms" />
 						<label class="mdl-textfield__label" for="rooms">Rooms</label>
 					</div>
 				</div>
 				<div>
 					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-						<input class="mdl-textfield__input" type="text" id="price" pattern="-?[0-9]*(\.[0-9]+)?" />
+						<input class="mdl-textfield__input" name="price" type="text" id="price" pattern="-?[0-9]*(\.[0-9]+)?" />
 						<label class="mdl-textfield__label" for="price">Price</label>
 						<span class="mdl-textfield__error">Price is not a number!</span>
 					</div>
