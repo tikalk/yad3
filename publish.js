@@ -1,16 +1,20 @@
 
 if(Meteor.isClient){
+	var picture;
 	Template.publish.events({
+		"change #picture": function(event){
+			var file = event.target.files[0],
+				reader = new FileReader();
+
+			reader.onload = function(e){
+				picture = reader.result;
+				Session.set("picture", reader.result);
+			};
+
+			reader.readAsDataURL(file);
+		},
 		"submit .publish-apartment": function(event){
-			// Prevent default browser form submit
 			event.preventDefault();
-
-			var doc = {},
-				fields = ['name', 'phone', 'picture', 'floor', 'rooms', 'price'];
-
-			fields.forEach(function(field){
-				doc[field] = event.target[field].value;
-			});
 
 			Apartments.insert({
 				contact: {
@@ -22,12 +26,21 @@ if(Meteor.isClient){
 					geohash: 'a554hd7'
 				},
 				info: {
-					picture: 'image',
-					floor: parseInt(event.target.floor.value),
-					rooms: parseInt(event.target.rooms.value),
-					price: parseFloat(event.target.price.value)
+					picture: picture,
+					floor: event.target.floor.value != null ? parseInt(event.target.floor.value) : null,
+					rooms: event.target.rooms.value != null ? parseInt(event.target.rooms.value) : null,
+					price: event.target.price.value != null ? parseInt(event.target.price.value) : null
 				}
 			});
+
+			event.target.reset();
+			location.href = "/search";
+		}
+	});
+
+	Template.publish.helpers({
+		picture: function(){
+			return Session.get("picture");
 		}
 	});
 }
