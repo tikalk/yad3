@@ -1,3 +1,31 @@
 <template name="search">
 	<h3>Search for an apartment</h3>
+
+      <form class="search-form">
+	Rooms:
+        from: <input type="text" name="minRooms" value="{{searchForm.minRooms}}" placeholder="Minimum number of rooms" />
+        to: <input type="text" name="maxRooms" value="{{searchForm.maxRooms}}" placeholder="Maximum number of rooms" />
+	<br>
+
+	Floor:
+        from: <input type="text" name="minFloor" placeholder="Minimum floor" />
+        to: <input type="text" name="maxFloor" placeholder="Maximum floor" />
+	<br>
+	<input type="submit" value="Search">
+	<br>
+
+      </form>
+
+	<hr>
+	Results:
+	
+	<ul>
+		{{#each apartments}}
+			{{> apartment}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="apartment">
+  <li>{{name}}</li>
 </template>
