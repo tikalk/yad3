@@ -1,5 +1,33 @@
 <template name="publish">
 	<div class="mdl-grid mdl-cell--12-col">
 		<h3>Publish a new apartment</h3>
+		<div class="mdl-grid mdl-cell--12-col">
+			<form action="#">
+				<h4>Contact</h4>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="full_name" />
+						<label class="mdl-textfield__label" for="full_name">Your name</label>
+					</div>
+				</div>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+						<input class="mdl-textfield__input" type="text" id="phone" />
+						<label class="mdl-textfield__label" for="phone">Phone number</label>
+					</div>
+				</div>
+				<h4>About the asset</h4>
+				<div>
+					<div class="mdl-textfield mdl-js-textfield">
+						<input class="mdl-textfield__input" type="file" id="picture" />
+						<label class="mdl-textfield__label" for="picture">Picture</label>
+					</div>
+				</div>
+
+				<button class="mdl-button mdl-js-button mdl-button--raised">
+					Submit
+				</button>
+			</form>
+		</div>
 	</div>
 </template>
